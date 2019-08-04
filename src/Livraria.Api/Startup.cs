@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using Livraria.Api.Repositorios;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -24,6 +25,11 @@ namespace Livraria.Api
             {
                 c.SwaggerDoc("v1", new Info { Title = "Livraria", Version = "v1" });
             });
+
+            var connectionStringLivraria = Configuration["ConnectionStrings:Livraria"];
+
+            services.AddTransient(s => new LivroRepositorio(connectionStringLivraria));
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

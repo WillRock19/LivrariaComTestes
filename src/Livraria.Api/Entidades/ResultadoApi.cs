@@ -12,5 +12,11 @@ namespace Livraria.Api.Entidades
         {
             Notificacoes = new List<string>();
         }
+
+        public ResultadoApi(string notificacao)
+        {
+            Sucesso = false;
+            Notificacoes = new List<string>() { notificacao };
+        }
     }
 }
