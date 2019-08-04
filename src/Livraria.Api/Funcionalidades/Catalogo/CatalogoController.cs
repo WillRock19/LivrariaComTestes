@@ -1,10 +1,12 @@
 ﻿using Livraria.Api.Entidades;
 using Livraria.Api.Repositorios;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Threading.Tasks;
 
 namespace Livraria.Api.Funcionalidades.Catalogo
 {
+    [Route("api/[controller]")]
     public class CatalogoController : ControllerBase
     {
         private readonly LivroRepositorio _livroRepository;
@@ -14,26 +16,46 @@ namespace Livraria.Api.Funcionalidades.Catalogo
             _livroRepository = livroRepository;
         }
 
-
         [HttpGet("{livroId}")]
         public async Task<ActionResult> ObterLivro(int livroId)
         {
             if (livroId == 0)
-                return BadRequest(new ResultadoApi("Id do livro desejado deve ser informado"));
+                return BadRequest(new ResultadoApi("Favor, informar o livroId do livro desejado"));
 
-            var livro = await _livroRepository.ObterLivro(livroId);
-
-            return Ok(new ResultadoApi
+            try
             {
-                Sucesso = true,
-                Dados = livro
-            });
+                var livro = await _livroRepository.ObterLivro(livroId);
+
+                if (livro == null)
+                    return NotFound(new ResultadoApi($"Livro {livroId} não foi encontrado!"));
+
+                return Ok(new ResultadoApi
+                {
+                    Sucesso = true,
+                    Dados = livro
+                });
+            }
+            catch(Exception erro) {
+                return BadRequest(new ResultadoApi($"O seguinte erro ocorreu ao acessar a base de dados: {erro.Message}"));
+            }
         }
 
         [HttpGet]
-        public ActionResult ObterLivros()
+        public async Task<ActionResult> ObterLivros()
         {
-            return Ok(new ResultadoApi());
+            try
+            {
+                var livros = await _livroRepository.ObterLivros();
+
+                return Ok(new ResultadoApi
+                {
+                    Sucesso = true,
+                    Dados = livros
+                });
+            }
+            catch (Exception erro) {
+                return BadRequest(new ResultadoApi($"O seguinte erro ocorreu ao acessar a base de dados: {erro.Message}"));
+            }
         }
 
         [HttpPost]

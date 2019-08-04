@@ -4,6 +4,7 @@ using Livraria.Api.Infraestrutura.Sqls;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SQLite;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Livraria.Api.Repositorios
@@ -15,7 +16,7 @@ namespace Livraria.Api.Repositorios
         public LivroRepositorio(string connectionString) => 
             _connectionString = connectionString;
 
-        public async Task<IEnumerable<Livro>> ObterLivro(int livroId)
+        public async Task<Livro> ObterLivro(int livroId)
         {
             using (IDbConnection connection = new SQLiteConnection(_connectionString))
             {
@@ -24,7 +25,7 @@ namespace Livraria.Api.Repositorios
                     LivroId = livroId
                 });
 
-                return resultado;
+                return resultado.FirstOrDefault();
             }
         }
 
