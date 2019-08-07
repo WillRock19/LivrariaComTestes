@@ -4,6 +4,7 @@ using Livraria.Api.Entidades;
 using Livraria.Api.Repositorios;
 using Livraria.Testes.Comum.Builders;
 using NUnit.Framework;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Livraria.Testes.Integracao.Repositorios
@@ -39,7 +40,11 @@ namespace Livraria.Testes.Integracao.Repositorios
         [TestCase(TestName = "Deve obter lista de livros da base de dados")]
         public void DeveObterListaDeLivros()
         {
-            false.Should().BeTrue();
+            var livrosCriados = new LivroBuilder(Contexto.DbFullEndpoint).CriarListaNoDB(5);
+            var livrosRecuperados = _livroRepositorio.ObterTodos();
+
+            TodosLivrosCriadosForamRecuperados(livrosCriados, livrosRecuperados)
+                .Should().BeTrue();
         }
 
         [TestCase(TestName = "Deve obter livro por livroId")]
@@ -49,6 +54,11 @@ namespace Livraria.Testes.Integracao.Repositorios
             var livroRecuperado = _livroRepositorio.ObterPorId(livroCriado.Id);
 
             livroRecuperado.Should().BeEquivalentTo(livroCriado);
+        }
+
+        private bool TodosLivrosCriadosForamRecuperados(List<Livro> livrosCriados, List<Livro> livrosRecuperados)
+        {
+            return livrosCriados.Except(livrosRecuperados).Any();
         }
     }
 }

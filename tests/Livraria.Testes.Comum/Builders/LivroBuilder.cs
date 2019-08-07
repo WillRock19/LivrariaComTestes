@@ -33,22 +33,41 @@ namespace Livraria.Testes.Comum.Builders
             }
         }
 
-        //public List<Livro> CriarListaNoDB()
-        //{
-        //    var livro = Instanciar();
+        public List<Livro> CriarListaNoDB(int quantidade)
+        {
+            var livros = InstanciarListaLivros(quantidade);
+            var livrosComIds = new List<Livro>();
 
-        //    using (var db = new LiteDatabase(_diretorioDB))
-        //    {
-        //        var objetoId = db.GetCollection<Livro>(LivroRepositorio.NomeColecao)
-        //            .Insert(livro);
+            using (var db = new LiteDatabase(_diretorioDB))
+            {
+                foreach (var livro in livros)
+                {
+                    db.GetCollection<Livro>(LivroRepositorio.NomeColecao)
+                        .Insert(livro);
 
-        //        return livro;
-        //    }
-        //}
+                    livrosComIds.Add(livro);
+                }
 
-        //private List<Livro> InstanciarListaLivros(int quantidade)
-        //{
+                return livrosComIds;
+            }
+        }
 
-        //}
+        private List<Livro> InstanciarListaLivros(int quantidade)
+        {
+            var livros = new List<Livro>();
+
+            for (var index = 0; index <= quantidade; index++)
+            {
+                livros.Add(new Livro
+                {
+                    Titulo = $"Livro Teste {index}",
+                    NomeAutor = $"Autor Teste {index}",
+                    Preco = 9.99m * index,
+                    Categoria = Categoria.Fantasia
+                });
+            }
+
+            return livros;
+        }
     }
 }

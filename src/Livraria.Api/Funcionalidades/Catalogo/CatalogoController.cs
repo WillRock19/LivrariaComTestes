@@ -2,18 +2,17 @@
 using Livraria.Api.Repositorios;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Threading.Tasks;
 
 namespace Livraria.Api.Funcionalidades.Catalogo
 {
     [Route("api/[controller]")]
     public class CatalogoController : ControllerBase
     {
-        private readonly LivroRepositorio _livroRepository;
+        private readonly LivroRepositorio _livroRepositorio;
 
         public CatalogoController(LivroRepositorio livroRepository)
         {
-            _livroRepository = livroRepository;
+            _livroRepositorio = livroRepository;
         }
 
         [HttpGet]
@@ -24,7 +23,7 @@ namespace Livraria.Api.Funcionalidades.Catalogo
 
             try
             {
-                var livro = _livroRepository.ObterPorId(livroId);
+                var livro = _livroRepositorio.ObterPorId(livroId);
 
                 if (livro == null)
                     return NotFound(new ResultadoApi($"Livro {livroId} não foi encontrado!"));
@@ -45,7 +44,7 @@ namespace Livraria.Api.Funcionalidades.Catalogo
         {
             try
             {
-                var livros = _livroRepository.ObterTodos();
+                var livros = _livroRepositorio.ObterTodos();
 
                 return Ok(new ResultadoApi
                 {
@@ -63,7 +62,7 @@ namespace Livraria.Api.Funcionalidades.Catalogo
         {
             try
             {
-                _livroRepository.Salvar(new Livro { NomeAutor = "Teste" });
+                _livroRepositorio.Salvar(new Livro { NomeAutor = "Teste" });
                 return Ok();
             }
             catch (Exception erro)
