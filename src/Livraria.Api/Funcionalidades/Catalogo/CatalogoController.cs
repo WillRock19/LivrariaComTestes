@@ -17,14 +17,14 @@ namespace Livraria.Api.Funcionalidades.Catalogo
         }
 
         [HttpGet("{livroId}")]
-        public async Task<ActionResult> ObterLivro(int livroId)
+        public ActionResult ObterLivro(int livroId)
         {
             if (livroId == 0)
                 return BadRequest(new ResultadoApi("Favor, informar o livroId do livro desejado"));
 
             try
             {
-                var livro = await _livroRepository.ObterLivro(livroId);
+                var livro = _livroRepository.ObterPorId(livroId);
 
                 if (livro == null)
                     return NotFound(new ResultadoApi($"Livro {livroId} não foi encontrado!"));
@@ -41,11 +41,11 @@ namespace Livraria.Api.Funcionalidades.Catalogo
         }
 
         [HttpGet]
-        public async Task<ActionResult> ObterLivros()
+        public ActionResult ObterLivros()
         {
             try
             {
-                var livros = await _livroRepository.ObterLivros();
+                var livros = _livroRepository.ObterTodos();
 
                 return Ok(new ResultadoApi
                 {
@@ -61,7 +61,18 @@ namespace Livraria.Api.Funcionalidades.Catalogo
         [HttpPost]
         public ActionResult SalvarLivros()
         {
-            return NotFound(new ResultadoApi("Funcionalidade não implementada"));
+            try
+            {
+                _livroRepository.Salvar(new Livro { NomeAutor = "Teste" });
+                return Ok();
+            }
+            catch (Exception erro)
+            {
+                return BadRequest(new ResultadoApi($"O seguinte erro ocorreu ao acessar a base de dados: {erro.Message}"));
+            }
+
+
+            //return NotFound(new ResultadoApi("Funcionalidade não implementada"));
         }
     }
 }

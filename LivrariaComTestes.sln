@@ -11,14 +11,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Livraria.Testes.Unidade", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Livraria.Testes.Comum", "tests\Livraria.Testes.Comum\Livraria.Testes.Comum.csproj", "{05CAC7E8-8B53-48FF-A61E-C5AA0EA84C98}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Livraria.Testes.Integracao", "tests\Livraria.Testes.Integracao\Livraria.Testes.Integracao.csproj", "{9DDE253B-FC2A-4121-8375-86B2D6A9931B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Livraria.Testes.Integracao", "tests\Livraria.Testes.Integracao\Livraria.Testes.Integracao.csproj", "{9DDE253B-FC2A-4121-8375-86B2D6A9931B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Livraria.Api", "src\Livraria.Api\Livraria.Api.csproj", "{F151BF97-7935-43E6-8C30-E6A1CB775265}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Livraria.Api", "src\Livraria.Api\Livraria.Api.csproj", "{F151BF97-7935-43E6-8C30-E6A1CB775265}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{23D25257-AAF0-4073-BD4D-A5CBAB3CAAAC}"
-	ProjectSection(SolutionItems) = preProject
-		LivrariaDb.db = LivrariaDb.db
-	EndProjectSection
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "db", "db", "{18130D19-105B-43A6-8740-15B4864FE6F0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Livraria.Testes.Api", "tests\Livraria.Testes.Api\Livraria.Testes.Api.csproj", "{304B3F53-DAD7-400A-A6F4-424E56659343}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -42,6 +41,10 @@ Global
 		{F151BF97-7935-43E6-8C30-E6A1CB775265}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F151BF97-7935-43E6-8C30-E6A1CB775265}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F151BF97-7935-43E6-8C30-E6A1CB775265}.Release|Any CPU.Build.0 = Release|Any CPU
+		{304B3F53-DAD7-400A-A6F4-424E56659343}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{304B3F53-DAD7-400A-A6F4-424E56659343}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{304B3F53-DAD7-400A-A6F4-424E56659343}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{304B3F53-DAD7-400A-A6F4-424E56659343}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -51,6 +54,7 @@ Global
 		{05CAC7E8-8B53-48FF-A61E-C5AA0EA84C98} = {D847D827-A525-41EB-A748-D7A43FAFB8C7}
 		{9DDE253B-FC2A-4121-8375-86B2D6A9931B} = {D847D827-A525-41EB-A748-D7A43FAFB8C7}
 		{F151BF97-7935-43E6-8C30-E6A1CB775265} = {B652E549-8F9A-4746-AC02-B9E54BF437E9}
+		{304B3F53-DAD7-400A-A6F4-424E56659343} = {D847D827-A525-41EB-A748-D7A43FAFB8C7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D2DB3E50-2679-4F46-8927-94C3775AE339}

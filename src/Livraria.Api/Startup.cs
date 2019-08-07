@@ -1,4 +1,5 @@
-﻿using Livraria.Api.Repositorios;
+﻿using Livraria.Api.Infraestrutura;
+using Livraria.Api.Repositorios;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -26,9 +27,11 @@ namespace Livraria.Api
                 c.SwaggerDoc("v1", new Info { Title = "Livraria", Version = "v1" });
             });
 
-            var connectionStringLivraria = Configuration["ConnectionStrings:Livraria"];
+            var nomeDb = Configuration["LiteDb:Name"];
+            var diretorioDb = Configuration["LiteDb:Endpoint"];
+            var pathDb = $@"{diretorioDb}\{nomeDb}";
 
-            services.AddTransient(s => new LivroRepositorio(connectionStringLivraria));
+            services.AddTransient(s => new LivroRepositorio(pathDb));
 
         }
 
