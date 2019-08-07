@@ -20,7 +20,7 @@ namespace Livraria.Testes.Api
                 .CriarBackupBaseCasoNaoExista(Contexto.DataBaseDirectory, Contexto.TestDbName, Contexto.DbName);
 
             var caminhoBase = Localizador.ObterCaminhoDaSolution();
-            var caminhoProjeto = Path.Combine(caminhoBase, "src", "Cadastro.ProspeccaoCliente");
+            var caminhoProjeto = Path.Combine(caminhoBase, "src", "Livraria.Api");
 
             var builder = Program.CreateWebHostBuilder(new string[] { })
                 .UseContentRoot(caminhoProjeto)
