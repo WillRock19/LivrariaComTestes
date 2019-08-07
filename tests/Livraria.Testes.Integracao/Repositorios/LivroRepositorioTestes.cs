@@ -2,6 +2,7 @@
 using LiteDB;
 using Livraria.Api.Entidades;
 using Livraria.Api.Repositorios;
+using Livraria.Testes.Comum.Builders;
 using NUnit.Framework;
 using System.Linq;
 
@@ -44,7 +45,10 @@ namespace Livraria.Testes.Integracao.Repositorios
         [TestCase(TestName = "Deve obter livro por livroId")]
         public void DeveObterLivroPorId()
         {
-            false.Should().BeTrue();
+            var livroCriado = new LivroBuilder(Contexto.DbFullEndpoint).CriarNoDB();
+            var livroRecuperado = _livroRepositorio.ObterPorId(livroCriado.Id);
+
+            livroRecuperado.Should().BeEquivalentTo(livroCriado);
         }
     }
 }

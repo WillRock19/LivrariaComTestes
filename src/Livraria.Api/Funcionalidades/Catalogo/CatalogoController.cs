@@ -16,8 +16,8 @@ namespace Livraria.Api.Funcionalidades.Catalogo
             _livroRepository = livroRepository;
         }
 
-        [HttpGet("{livroId}")]
-        public ActionResult ObterLivro(int livroId)
+        [HttpGet]
+        public ActionResult ObterLivro([FromQuery]int livroId)
         {
             if (livroId == 0)
                 return BadRequest(new ResultadoApi("Favor, informar o livroId do livro desejado"));
@@ -40,7 +40,7 @@ namespace Livraria.Api.Funcionalidades.Catalogo
             }
         }
 
-        [HttpGet]
+        [HttpGet("livros")]
         public ActionResult ObterLivros()
         {
             try
