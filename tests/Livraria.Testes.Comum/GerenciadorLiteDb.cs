@@ -22,6 +22,7 @@ namespace Livraria.Testes.Comum
             {
                 File.Delete(pathDataBase);
                 File.Move(pathBaseBackup, pathDataBase);
+                File.Delete(pathBaseBackup);
             }
         }
 
@@ -31,7 +32,10 @@ namespace Livraria.Testes.Comum
             var pathDataBase = $@"{diretorioDb}\{nomeBasePrincipal}";
 
             if (File.Exists(pathBaseBackup))
+            {
+                File.Delete(pathDataBase);
                 File.Move(pathBaseBackup, pathDataBase);
+            }
         }
     }
 }

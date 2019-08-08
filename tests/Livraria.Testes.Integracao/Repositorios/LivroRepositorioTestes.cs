@@ -32,7 +32,8 @@ namespace Livraria.Testes.Integracao.Repositorios
 
             using (var db = new LiteDatabase(Contexto.DbFullEndpoint))
             {
-                var livros = db.GetCollection<Livro>(LivroRepositorio.NomeColecao).FindAll().ToList();
+                var livros = db.GetCollection<Livro>(LivroRepositorio.NomeColecao)
+                    .FindAll().ToList();
                 livros.LastOrDefault().Should().BeEquivalentTo(livro);
             }
         }

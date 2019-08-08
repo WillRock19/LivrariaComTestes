@@ -9,7 +9,7 @@ namespace Livraria.Testes.Integracao
         public void ExecutarAposCadaTeste()
         {
             GerenciadorLiteDb
-                .RestaurarBackupComoBasePrincipal(
+                .RecriarColecao(
                     Contexto.DataBaseDirectory, Contexto.TestDbName, Contexto.DbName);
         }
     }
