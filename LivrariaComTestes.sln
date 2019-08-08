@@ -19,7 +19,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "db", "db", "{18130D19-105B-
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Livraria.Testes.Api", "tests\Livraria.Testes.Api\Livraria.Testes.Api.csproj", "{304B3F53-DAD7-400A-A6F4-424E56659343}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Livraria.Aplicacao", "src\Livraria.Aplicacao\Livraria.Aplicacao.csproj", "{6FC9393E-65CE-4C55-99D7-05AC0AD390E9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Livraria.Aplicacao", "src\Livraria.Aplicacao\Livraria.Aplicacao.csproj", "{6FC9393E-65CE-4C55-99D7-05AC0AD390E9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Livraria.Testes.Aceitacao", "tests\Livraria.Testes.Aceitacao\Livraria.Testes.Aceitacao.csproj", "{1D04F101-FB4B-4101-BD9C-AAA875DA5FD3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{6FC9393E-65CE-4C55-99D7-05AC0AD390E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6FC9393E-65CE-4C55-99D7-05AC0AD390E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6FC9393E-65CE-4C55-99D7-05AC0AD390E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D04F101-FB4B-4101-BD9C-AAA875DA5FD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D04F101-FB4B-4101-BD9C-AAA875DA5FD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D04F101-FB4B-4101-BD9C-AAA875DA5FD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D04F101-FB4B-4101-BD9C-AAA875DA5FD3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -62,6 +68,7 @@ Global
 		{F151BF97-7935-43E6-8C30-E6A1CB775265} = {B652E549-8F9A-4746-AC02-B9E54BF437E9}
 		{304B3F53-DAD7-400A-A6F4-424E56659343} = {D847D827-A525-41EB-A748-D7A43FAFB8C7}
 		{6FC9393E-65CE-4C55-99D7-05AC0AD390E9} = {B652E549-8F9A-4746-AC02-B9E54BF437E9}
+		{1D04F101-FB4B-4101-BD9C-AAA875DA5FD3} = {D847D827-A525-41EB-A748-D7A43FAFB8C7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D2DB3E50-2679-4F46-8927-94C3775AE339}
