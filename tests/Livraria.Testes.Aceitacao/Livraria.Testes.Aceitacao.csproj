@@ -19,4 +19,9 @@
     <ProjectReference Include="..\Livraria.Testes.Comum\Livraria.Testes.Comum.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Funcionalidades\" />
+    <Folder Include="Paginas\" />
+  </ItemGroup>
+
 </Project>
