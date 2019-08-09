@@ -17,7 +17,7 @@ namespace Livraria.Testes.Api.Funcionalidades.Catalogo
         [SetUp]
         public void Inicializar() { }
 
-        [TestCase(TestName = "Get deve retornar BadRequest caso livroId não seja informado.")]
+        [TestCase(TestName = "Obter deve retornar 'Requisição ruim' caso livroId não seja informado.")]
         public async Task DeveRetornarBadRequestCasoLivroIdNaoSejaInformado()
         {
             var resposta = await Client.GetAsync($"{PrefixoApi}");
@@ -30,7 +30,7 @@ namespace Livraria.Testes.Api.Funcionalidades.Catalogo
             objetoRetorno.Notificacoes.Should().Contain(x => x == "Favor, informar o livroId do livro desejado");
         }
 
-        [TestCase(TestName = "Get deve retornar NotFound caso livro não seja encontrado.")]
+        [TestCase(TestName = "Obter deve retornar 'Não encontrado' caso livro não seja encontrado.")]
         public async Task DeveRetornarNotFoundCasoLivroNaoSejaEncontrado()
         {
             var livroId = 999;
@@ -44,7 +44,7 @@ namespace Livraria.Testes.Api.Funcionalidades.Catalogo
             objetoRetorno.Notificacoes.Should().Contain(x => x == $"Livro {livroId} não foi encontrado!");
         }
 
-        [TestCase(TestName = "Get deve retornar livro a partir do livroId.")]
+        [TestCase(TestName = "Obter deve retornar livro a partir do livroId.")]
         public async Task DeveRetornarLivroAoReceberLivroId()
         {
             var livroDesejado = new LivroBuilder(Contexto.DbFullEndpoint).CriarNoDB();
@@ -62,7 +62,7 @@ namespace Livraria.Testes.Api.Funcionalidades.Catalogo
             livroRetornado.Should().BeEquivalentTo(livroDesejado);
         }
 
-        [TestCase(TestName = "Get deve retornar lista de livros do repositório.")]
+        [TestCase(TestName = "Obter deve retornar lista de livros do repositório.")]
         public async Task DeveRetornarListaLivros()
         {
             var resposta = await Client.GetAsync($"{PrefixoApi}/livros");
