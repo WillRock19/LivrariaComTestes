@@ -9,8 +9,8 @@ namespace Livraria.Testes.Integracao
         public void ExecutarAposCadaTeste()
         {
             GerenciadorLiteDb
-                .RecriarColecao(
-                    Contexto.DataBaseDirectory, Contexto.TestDbName, Contexto.DbName);
+                .RecriarColecaoAPartirDoBackup(
+                    Contexto.DataBaseDirectory, Contexto.BackupDbName, Contexto.DbName);
         }
     }
 }

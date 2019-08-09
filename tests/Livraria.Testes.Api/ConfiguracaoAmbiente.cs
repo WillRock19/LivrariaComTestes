@@ -17,7 +17,7 @@ namespace Livraria.Testes.Api
             Contexto.Configuration = GerenciadorConfiguracoes.BuildConfiguration();
 
             GerenciadorLiteDb
-                .CriarBackupBaseCasoNaoExista(Contexto.DataBaseDirectory, Contexto.TestDbName, Contexto.DbName);
+                .CriarBackupBaseCasoNaoExista(Contexto.DataBaseDirectory, Contexto.BackupDbName, Contexto.DbName);
 
             var caminhoBase = Localizador.ObterCaminhoDaSolution();
             var caminhoProjeto = Path.Combine(caminhoBase, "src", "Livraria.Api");
@@ -35,7 +35,7 @@ namespace Livraria.Testes.Api
         {
             Contexto.Client?.Dispose();
             GerenciadorLiteDb
-                .RestaurarBackupComoBasePrincipal(Contexto.DataBaseDirectory, Contexto.TestDbName, Contexto.DbName);
+                .RestaurarBackupComoBasePrincipal(Contexto.DataBaseDirectory, Contexto.BackupDbName, Contexto.DbName);
         }
     }
 }

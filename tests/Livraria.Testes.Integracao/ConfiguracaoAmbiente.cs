@@ -12,14 +12,14 @@ namespace Livraria.Testes.Integracao
             Contexto.Configuration = GerenciadorConfiguracoes.BuildConfiguration();
 
             GerenciadorLiteDb
-                .CriarBackupBaseCasoNaoExista(Contexto.DataBaseDirectory, Contexto.TestDbName, Contexto.DbName);
+                .CriarBackupBaseCasoNaoExista(Contexto.DataBaseDirectory, Contexto.BackupDbName, Contexto.DbName);
         }
 
         [OneTimeTearDown]
         public void Finalizar()
         {
             GerenciadorLiteDb
-                .RestaurarBackupComoBasePrincipal(Contexto.DataBaseDirectory, Contexto.TestDbName, Contexto.DbName);
+                .RestaurarBackupComoBasePrincipal(Contexto.DataBaseDirectory, Contexto.BackupDbName, Contexto.DbName);
         }
     }
 }

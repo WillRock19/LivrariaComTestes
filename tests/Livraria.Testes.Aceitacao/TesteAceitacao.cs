@@ -9,8 +9,8 @@ namespace Livraria.Testes.Aceitacao
         public void RodarAposCadaTeste()
         {
             GerenciadorLiteDb
-                .RestaurarBackupComoBasePrincipal(
-                    Contexto.DataBaseDirectory, Contexto.TestDbName, Contexto.DbName);
+                .RecriarColecaoAPartirDoBackup(
+                    Contexto.DataBaseDirectory, Contexto.BackupDbName, Contexto.DbName);
         }
     }
 }

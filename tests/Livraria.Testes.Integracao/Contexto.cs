@@ -11,6 +11,6 @@ namespace Livraria.Testes.Integracao
         public static string DbName => Configuration["LiteDb:Name"];
         public static string DataBaseDirectory => Configuration["LiteDb:Endpoint"];
         public static string DbFullEndpoint => $@"{DataBaseDirectory}\{DbName}";
-        public static string TestDbName => "Livraria_teste";
+        public static string BackupDbName => "Livraria_teste";
     }
 }

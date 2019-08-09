@@ -22,19 +22,18 @@ namespace Livraria.Testes.Comum
             {
                 File.Delete(pathDataBase);
                 File.Move(pathBaseBackup, pathDataBase);
-                File.Delete(pathBaseBackup);
             }
         }
 
-        public static void RecriarColecao(string diretorioDb, string nomeBaseTestes, string nomeBasePrincipal)
+        public static void RecriarColecaoAPartirDoBackup(string diretorioDb, string nomeBaseBackup, string nomeBasePrincipal)
         {
-            var pathBaseBackup = $@"{diretorioDb}\{nomeBaseTestes}";
+            var pathBaseBackup = $@"{diretorioDb}\{nomeBaseBackup}";
             var pathDataBase = $@"{diretorioDb}\{nomeBasePrincipal}";
 
             if (File.Exists(pathBaseBackup))
             {
                 File.Delete(pathDataBase);
-                File.Move(pathBaseBackup, pathDataBase);
+                File.Copy(pathBaseBackup, pathDataBase);
             }
         }
     }

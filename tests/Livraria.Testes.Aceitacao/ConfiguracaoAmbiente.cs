@@ -22,7 +22,7 @@ namespace Livraria.Testes.Aceitacao
             Contexto.Configuration = GerenciadorConfiguracoes.BuildConfiguration();
 
             GerenciadorLiteDb.CriarBackupBaseCasoNaoExista(
-                    Contexto.DataBaseDirectory, Contexto.TestDbName, Contexto.DbName);
+                    Contexto.DataBaseDirectory, Contexto.BackupDbName, Contexto.DbName);
 
             _webHost = WebHost.CreateDefaultBuilder(new string[0])
                 .UseSetting(WebHostDefaults.ApplicationKey, projectName)

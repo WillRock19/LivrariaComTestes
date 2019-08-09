@@ -12,8 +12,8 @@ namespace Livraria.Testes.Api
         public void ExecutarAposCadaTeste()
         {
             GerenciadorLiteDb
-                .RestaurarBackupComoBasePrincipal(
-                    Contexto.DataBaseDirectory, Contexto.TestDbName, Contexto.DbName);
+                .RecriarColecaoAPartirDoBackup(
+                    Contexto.DataBaseDirectory, Contexto.BackupDbName, Contexto.DbName);
         }
     }
 }
