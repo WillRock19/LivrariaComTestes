@@ -9,5 +9,8 @@ namespace Livraria.Testes.Aceitacao.Paginas
         public abstract string Url { get; }
         public void Navegar() => 
             Driver?.Navigate().GoToUrl($"{UrlBase}{Url}");
+
+        public string ObterUrlAtualDoNavegador() =>
+            Driver?.Url;
     }
 }

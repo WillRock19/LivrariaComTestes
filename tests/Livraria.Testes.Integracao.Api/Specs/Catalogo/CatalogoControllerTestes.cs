@@ -8,7 +8,7 @@ using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace Livraria.Testes.Api.Funcionalidades.Catalogo
+namespace Livraria.Testes.Integracao.Api.Specs.Catalogo
 {
     class CatalogoControllerTestes : TesteApi
     {

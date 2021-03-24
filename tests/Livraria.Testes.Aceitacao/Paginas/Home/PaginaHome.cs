@@ -9,9 +9,12 @@ namespace Livraria.Testes.Aceitacao.Paginas.Home
         public bool BannerEstaVisivel() 
             => ElementoEstaVisivel("BannerPrincipal");
 
-        public string ObterMensagemProvocativa()
+        public SubPaginaConteudo NavegarPaginaConteudo()
         {
-            return Driver.FindElement(By.Id("MensagemProvocativa")).Text;
+            var elemento = Driver.FindElement(By.XPath("/html/body/header/nav/div/div/ul/li[2]/a"));
+            elemento.Click();
+
+            return new SubPaginaConteudo();
         }
 
         private bool ElementoEstaVisivel(string idElemento) 

@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.TestHost;
 using NUnit.Framework;
 using System.IO;
 
-namespace Livraria.Testes.Api
+namespace Livraria.Testes.Integracao.Api
 {
     [SetUpFixture]
     class ConfiguracaoAmbiente

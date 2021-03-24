@@ -1,10 +1,13 @@
 ﻿using Livraria.Testes.Comum;
 using NUnit.Framework;
+using System.Net.Http;
 
-namespace Livraria.Testes.Integracao
+namespace Livraria.Testes.Integracao.Api
 {
-    class TesteIntegracao
+    class TesteApi
     {
+        protected HttpClient Client = Contexto.Client;
+
         [TearDown]
         public void ExecutarAposCadaTeste()
         {

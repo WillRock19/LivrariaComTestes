@@ -7,7 +7,7 @@ using NUnit.Framework;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Livraria.Testes.Integracao.Repositorios
+namespace Livraria.Testes.Integracao.BD.Specs.Repositorios
 {
     class LivroRepositorioTestes : TesteIntegracao
     {
@@ -20,6 +20,7 @@ namespace Livraria.Testes.Integracao.Repositorios
         [TestCase(TestName = "Deve salvar livros dentro da base de dados")]
         public void DeveSalvarLivroNaBaseDeDados()
         {
+            //arrange
             var livro = new Livro()
             {
                 Titulo = "O teste do apanhador de senteio",
@@ -28,8 +29,10 @@ namespace Livraria.Testes.Integracao.Repositorios
                 Categoria = Categoria.Fantasia
             };
 
+            //action
             _livroRepositorio.Salvar(livro);
 
+            //assert
             using (var db = new LiteDatabase(Contexto.DbFullEndpoint))
             {
                 var livros = db.GetCollection<Livro>(LivroRepositorio.NomeColecao)
@@ -41,9 +44,13 @@ namespace Livraria.Testes.Integracao.Repositorios
         [TestCase(TestName = "Deve obter lista de livros da base de dados")]
         public void DeveObterListaDeLivros()
         {
+            //arrange
             var livrosCriados = new LivroBuilder(Contexto.DbFullEndpoint).CriarListaNoDB(5);
+            
+            //action
             var livrosRecuperados = _livroRepositorio.ObterTodos();
 
+            //assert
             TodosLivrosCriadosForamRecuperados(livrosCriados, livrosRecuperados)
                 .Should().BeTrue();
         }
@@ -51,9 +58,13 @@ namespace Livraria.Testes.Integracao.Repositorios
         [TestCase(TestName = "Deve obter livro por livroId")]
         public void DeveObterLivroPorId()
         {
+            //arrange
             var livroCriado = new LivroBuilder(Contexto.DbFullEndpoint).CriarNoDB();
+            
+            //action
             var livroRecuperado = _livroRepositorio.ObterPorId(livroCriado.Id);
 
+            //assert
             livroRecuperado.Should().BeEquivalentTo(livroCriado);
         }
 

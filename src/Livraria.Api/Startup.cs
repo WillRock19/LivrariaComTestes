@@ -1,4 +1,5 @@
-﻿using Livraria.Api.Infraestrutura;
+﻿using Livraria.Api.Entidades;
+using Livraria.Api.Infraestrutura;
 using Livraria.Api.Repositorios;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -31,8 +32,7 @@ namespace Livraria.Api
             var diretorioDb = Configuration["LiteDb:Endpoint"];
             var pathDb = $@"{diretorioDb}\{nomeDb}";
 
-            services.AddTransient(s => new LivroRepositorio(pathDb));
-
+            //services.AddTransient<IRepositorio<Livro>, LivroRepositorio>(service => new LivroRepositorio(pathDb));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

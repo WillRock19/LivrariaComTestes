@@ -1,7 +1,7 @@
 ﻿using Livraria.Testes.Comum;
 using NUnit.Framework;
 
-namespace Livraria.Testes.Integracao
+namespace Livraria.Testes.Integracao.BD
 {
     [SetUpFixture]
     class ConfiguracaoAmbiente

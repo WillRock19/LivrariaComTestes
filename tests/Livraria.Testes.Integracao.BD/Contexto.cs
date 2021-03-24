@@ -1,7 +1,9 @@
 ﻿using Microsoft.Extensions.Configuration;
-using System.Net.Http;
+using System;
+using System.Collections.Generic;
+using System.Text;
 
-namespace Livraria.Testes.Api
+namespace Livraria.Testes.Integracao.BD
 {
     class Contexto
     {
@@ -9,7 +11,6 @@ namespace Livraria.Testes.Api
         public static string DbName => Configuration["LiteDb:Name"];
         public static string DataBaseDirectory => Configuration["LiteDb:Endpoint"];
         public static string DbFullEndpoint => $@"{DataBaseDirectory}\{DbName}";
-        public static string BackupDbName => "Livraria_backup";
-        public static HttpClient Client { get; set; }
+        public static string BackupDbName => "Livraria_teste";
     }
 }

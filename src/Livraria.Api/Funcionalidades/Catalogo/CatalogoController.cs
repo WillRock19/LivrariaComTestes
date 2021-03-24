@@ -8,9 +8,9 @@ namespace Livraria.Api.Funcionalidades.Catalogo
     [Route("api/[controller]")]
     public class CatalogoController : ControllerBase
     {
-        private readonly LivroRepositorio _livroRepositorio;
+        private readonly IRepositorio<Livro> _livroRepositorio;
 
-        public CatalogoController(LivroRepositorio livroRepository)
+        public CatalogoController(IRepositorio<Livro> livroRepository)
         {
             _livroRepositorio = livroRepository;
         }

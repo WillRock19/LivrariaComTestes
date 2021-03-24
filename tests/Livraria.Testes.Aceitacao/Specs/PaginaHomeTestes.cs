@@ -2,9 +2,9 @@
 using Livraria.Testes.Aceitacao.Paginas.Home;
 using NUnit.Framework;
 
-namespace Livraria.Testes.Aceitacao.Funcionalidades
+namespace Livraria.Testes.Aceitacao.Specs
 {
-    class ListarLivrosTestes : TesteAceitacao
+    class PaginaHomeTestes : TesteAceitacao
     {
         private PaginaHome _home;
 
@@ -21,11 +21,21 @@ namespace Livraria.Testes.Aceitacao.Funcionalidades
             _home.BannerEstaVisivel().Should().BeTrue();
         }
 
-        [TestCase(TestName = "Deve exibir mensagem provocativa na tela")]
+        [TestCase(TestName = "Deve conseguir navegar para pagina de conteúdo")]
+        public void DeveNavegarParaPaginaDeConteudo()
+        {
+            var paginaConteudo = _home.NavegarPaginaConteudo();
+            paginaConteudo.ObterUrlAtualDoNavegador().Should().Contain("/Home/Privacy");
+        }
+
+        [TestCase(TestName = "Deve exibir mensagem provocativa na tela de conteúdo")]
         public void DeveExibirMensagemProvocativaNaTela()
         {
+            var subPaginaConteudo = new SubPaginaConteudo();
             var mensagemEsperada = "Tá na hora de colocar ALGUMA COISA neste site, né? :p";
-            var mensagem = _home.ObterMensagemProvocativa();
+
+            subPaginaConteudo.Navegar();
+            var mensagem = subPaginaConteudo.ObterMensagemProvocativa();
 
             mensagem.Should().Be(mensagemEsperada);
         }
