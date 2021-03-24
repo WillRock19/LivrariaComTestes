@@ -15,10 +15,19 @@ namespace Livraria.Testes.Aceitacao.Funcionalidades
             _home.Navegar();
         }
 
-        [TestCase(TestName = "Tste")]
-        public void T()
+        [TestCase(TestName = "Deve exibir o banner do evento na tela")]
+        public void DeveExibirBannerDoEvento()
         {
-            false.Should().BeTrue();
+            _home.BannerEstaVisivel().Should().BeTrue();
+        }
+
+        [TestCase(TestName = "Deve exibir mensagem provocativa na tela")]
+        public void DeveExibirMensagemProvocativaNaTela()
+        {
+            var mensagemEsperada = "Tá na hora de colocar ALGUMA COISA neste site, né? :p";
+            var mensagem = _home.ObterMensagemProvocativa();
+
+            mensagem.Should().Be(mensagemEsperada);
         }
     }
 }

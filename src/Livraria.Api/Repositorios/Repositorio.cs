@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace Livraria.Api.Repositorios
 {
-    public class Repositorio<T> where T : Entidade
+    public class Repositorio<T> : IRepositorio<T> where T : Entidade
     {
         private readonly string _nomeBaseDados;
         private readonly string _nomeColecao;
