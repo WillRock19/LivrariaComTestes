@@ -18,13 +18,17 @@ namespace Livraria.Testes.Aceitacao.Specs
         [TestCase(TestName = "Deve exibir o banner do evento na tela")]
         public void DeveExibirBannerDoEvento()
         {
+            //assert
             _home.BannerEstaVisivel().Should().BeTrue();
         }
 
         [TestCase(TestName = "Deve conseguir navegar para pagina de conteúdo")]
         public void DeveNavegarParaPaginaDeConteudo()
         {
+            //action
             var paginaConteudo = _home.NavegarPaginaConteudo();
+            
+            //assert
             paginaConteudo.ObterUrlAtualDoNavegador().Should().Contain("/Home/Privacy");
         }
 
